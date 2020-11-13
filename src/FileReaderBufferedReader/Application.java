@@ -9,12 +9,8 @@ public class Application {
 	public static void main(String[] args) {
 
 		String path = "C:\\Windows\\Temp\\in.txt";
-		FileReader fr = null;
-		BufferedReader br = null;
-		
-		try {
-			fr = new FileReader(path); //estabelece uma sequencia stream a partir do arquivo path
-			br = new BufferedReader(fr); // Estanciado a partir do File Reader para ser mais rapido a leitura
+
+		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			
 			String line = br.readLine();
 			
@@ -25,21 +21,7 @@ public class Application {
 		} catch (IOException e) {
 			System.out.println("Error: " + e.getMessage());
 		}
-		
-		finally {
-			try {
-				if (br != null) {
-					br.close();
-				}
-				if (fr != null) {
-					fr.close();
-				}
-			}
-			catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
+	
 	}
 
 }
