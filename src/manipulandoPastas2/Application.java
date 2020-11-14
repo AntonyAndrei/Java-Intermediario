@@ -15,7 +15,7 @@ public class Application {
 		File path = new File(strPath);
 		
 		System.out.println("Nome do Arquivo: " + path.getName());
-		System.out.println("Nome da Pasta que o arquivo está: " + path.getParent());
+		System.out.println("Diretório da Pasta que o arquivo está: " + path.getParent());
 		System.out.println("Diretório completo: " + path.getPath());
 		
 		
